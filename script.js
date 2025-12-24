@@ -8,12 +8,8 @@ const EMAILJS_SERVICE_ID = 'service_9huc6w1';
 const EMAILJS_TEMPLATE_ID = 'template_183u5gu';
 
 // Inicializar EmailJS
-if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'b9JLk-SkPVbChST9y') {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-    console.log('✅ EmailJS inicializado correctamente');
-} else {
-    console.warn('⚠️  Configura tus credenciales de EmailJS');
-}
+emailjs.init(EMAILJS_PUBLIC_KEY);
+console.log('✅ EmailJS inicializado correctamente');
 
 // ============================================
 // MENÚ MÓVIL
@@ -815,3 +811,4 @@ if (DEBUG_MODE) {
     };
 
 }
+
