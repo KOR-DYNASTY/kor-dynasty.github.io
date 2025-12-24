@@ -69,9 +69,12 @@ document.getElementById('formContacto').addEventListener('submit', function(e) {
     
     // Preparar parámetros para EmailJS
     const templateParams = {
-        subject: asunto || 'Consulta desde KOR DYNASTY',
         from_name: nombre,
         from_email: email,
+        subject: asunto || 'Consulta desde KOR DYNASTY',
+        message: mensaje,
+        to_name: 'KOR DYNASTY',
+        reply_to: email,
         date: new Date().toLocaleDateString('es-ES', {
             weekday: 'long',
             year: 'numeric',
@@ -79,10 +82,7 @@ document.getElementById('formContacto').addEventListener('submit', function(e) {
             day: 'numeric',
             hour: '2-digit',
             minute: '2-digit'
-        }),
-        message: mensaje,
-        to_name: 'KOR DYNASTY',
-        reply_to: email,
+        })
     };
     
     // Enviar email usando EmailJS
@@ -813,4 +813,5 @@ if (DEBUG_MODE) {
             console.log('❌ EmailJS no está disponible');
         }
     };
+
 }
