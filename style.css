@@ -758,6 +758,114 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ===== WHATSAPP ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    animation: floatWhatsApp 3s infinite ease-in-out;
+}
+
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 
+        0 4px 20px rgba(37, 211, 102, 0.4),
+        0 0 30px rgba(37, 211, 102, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-link:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 
+        0 6px 30px rgba(37, 211, 102, 0.6),
+        0 0 40px rgba(37, 211, 102, 0.4);
+    width: 160px;
+    border-radius: 30px;
+}
+
+.whatsapp-link i {
+    font-size: 32px;
+    color: white;
+    transition: all 0.4s;
+}
+
+.whatsapp-link:hover i {
+    transform: scale(1.1);
+}
+
+.whatsapp-text {
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: all 0.4s;
+    transform: translateX(10px);
+}
+
+.whatsapp-link:hover .whatsapp-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Efecto de pulso */
+.whatsapp-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #25D366;
+    z-index: -1;
+    animation: pulseWhatsApp 2s infinite;
+}
+
+@keyframes floatWhatsApp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseWhatsApp {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-link {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .whatsapp-link:hover {
+        width: 140px;
+    }
+}
+
 /* Efectos de partículas */
 .particles {
     position: fixed;
@@ -889,4 +997,5 @@ footer {
     .contact-form {
         padding: 30px 20px;
     }
+
 }
